@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAMIL-HANDWRITTEN-RECOGNITION</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="header"></header>
+    <div class="container">
+        
+        <div class="img-container">
+            <div class="img-box1"  id="img-box1">
+                <img src="{{file_path}}" alt="" id="imgtag">
+            </div>
+            <div class="img-box2">
+                <textarea name="" id="textarea1" cols="30" rows="10" >{{result}}</textarea>
+            </div>
+        </div>
+        <section class="form-section">
+            <button  class="btn-clear" id="btn-clear" onclick="clear_img()">clear</button>
+            <button  class="file-select-btn" onclick="document.querySelector('#file-select').click()">choose file</button>
+              
+            <form action="/upload" method="post" enctype="multipart/form-data" class="form">
+                <input  style="visibility: hidden;" type="file" class="file-select" id="file-select" name="fileinput" accept=".jpg, .jpeg, .png" onchange="get_img(event)" required>
+
+                <input type="submit" value="Extract" class="btn-extract" onclick="ex_log()">    
+            </form>
+
+            <button  class="btn-copy" onclick="copy_text()">copy</button>
+        </section>
+        <div class="log-container">
+            <details>
+                <summary class="log-btn" >logs</summary>
+                <textarea cols="5" rows="6" class="log-box" id="log-box" readonly></textarea>
+            </details>
+    </div>
+    </div>
+</body>
+    <script src="/static/script.js" type="text/javascript"></script>
+</html>
+
